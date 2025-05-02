@@ -56,16 +56,33 @@ public class Lab2p2_salvador_macias {
                                 int opc_admin = lea.nextInt();
                                 switch (opc_admin) {
                                     case 1: {
+                                        System.out.println("ingrese el nombre de la zona: ");
+                                        String zona = str.nextLine();
+                                        System.out.println("ingrese el clima: ");
+                                        String clima = str.nextLine();
+                                        System.out.println("ingrese el efecto del clima en el heroe : ");
+                                        int efecto_clima_heroe = lea.nextInt();
+                                        System.out.println("ingrese el efecto del clima en el enemigo :");
+                                        int efecto_clima_enemigo = lea.nextInt();
+                                        lista_mapas.add(new mapa(zona, clima, efecto_clima_heroe, efecto_clima_enemigo));
 
                                     }
 
                                     break;
                                     case 2: {
+                                        System.out.println("ingrese el nombre del enemigo :");
+                                        String nombre = str.nextLine();
+                                        System.out.println("ingrese la vida: ");
+                                        int vida = lea.nextInt();
+                                        System.out.println("ingrese el ataque: ");
+                                        int ataque = lea.nextInt();
+                                        lista_enemigos.add(new enemigo(nombre, vida, ataque));
 
                                     }
 
                                     break;
                                     case 3: {
+                                        System.out.println("");
 
                                     }
 
@@ -97,7 +114,7 @@ public class Lab2p2_salvador_macias {
                                     break;
                                     case 0: {
                                         System.out.println("se abandonara el menu de adminstrador");
-                                        salida_admin=true;
+                                        salida_admin = true;
                                     }
 
                                     break;
@@ -141,5 +158,27 @@ public class Lab2p2_salvador_macias {
         } while (salida != true);//fin while menu principal
 
     }//fin main
+
+    public static void listar_mapas() {
+        System.out.println("---lista de mapas---");
+        for (int i = 0; i < lista_mapas.size(); i++) {
+            System.out.println(
+                    lista_mapas.indexOf(lista_mapas.get(i)) + "-"
+                    + lista_mapas.get(i)
+            );
+        }
+
+    }
+    
+    public static void listar_enemigos() {
+        System.out.println("---lista de enemigos---");
+        for (int i = 0; i < lista_enemigos.size(); i++) {
+            System.out.println(
+                    lista_enemigos.indexOf(lista_enemigos.get(i)) + "-"
+                    + lista_enemigos.get(i)
+            );
+        }
+
+    }
 
 }//fin clase
