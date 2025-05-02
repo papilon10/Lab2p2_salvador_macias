@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class Lab2p2_salvador_macias {
 
-    public static ArrayList lista_mapas = new ArrayList();
-    public static ArrayList lista_enemigos = new ArrayList();
+    public static ArrayList<mapa> lista_mapas = new ArrayList();
+    public static ArrayList<enemigo> lista_enemigos = new ArrayList();
     public static ArrayList lista_heroes = new ArrayList();
 
     public static Scanner lea = new Scanner(System.in);
@@ -82,22 +82,50 @@ public class Lab2p2_salvador_macias {
 
                                     break;
                                     case 3: {
-                                        System.out.println("");
+                                        listar_mapas();
+                                        System.out.println("ingrese el indice del mapa a modificar :");
+                                        int mod_mapa = lea.nextInt();
+                                        lista_mapas.get(mod_mapa);
+                                        System.out.println("ingrese el nombre de la zona: ");
+                                        String nombre = str.nextLine();
+                                        lista_mapas.get(mod_mapa).setZona(nombre);
+                                        System.out.println("ingrese el clima: ");
+                                        String clima = str.nextLine();
+                                        lista_mapas.get(mod_mapa).setClima(clima);
+                                        System.out.println("ingrese el efecto del clima en el heroe : ");
+                                        int efecto_clima_heroe = lea.nextInt();
+                                        lista_mapas.get(mod_mapa).setEfecto_clima_heroe(efecto_clima_heroe);
+                                        System.out.println("ingrese el efecto del clima en el enemigo :");
+                                        int efecto_clima_enemigo = lea.nextInt();
+                                        lista_mapas.get(mod_mapa).setEfecto_clima_enemigo(efecto_clima_enemigo);
 
                                     }
 
                                     break;
                                     case 4: {
+                                        listar_enemigos();
+                                        System.out.println("ingrese el indice del enemigo a modificar : ");
+                                        int mod_enemigo = lea.nextInt();
+                                        System.out.println("ingrese el nombre del enemigo :");
+                                        String nombre = str.nextLine();
+                                        lista_enemigos.get(mod_enemigo).setNombre(nombre);
+                                        System.out.println("ingrese la vida: ");
+                                        int vida = lea.nextInt();
+                                        lista_enemigos.get(mod_enemigo).setVida(vida);
+                                        System.out.println("ingrese el ataque: ");
+                                        int ataque = lea.nextInt();
+                                        lista_enemigos.get(mod_enemigo).setAtaque(ataque);
 
                                     }
 
                                     break;
                                     case 5: {
-
+                                        listar_mapas();
                                     }
 
                                     break;
                                     case 6: {
+                                        listar_enemigos();
 
                                     }
 
@@ -169,7 +197,7 @@ public class Lab2p2_salvador_macias {
         }
 
     }
-    
+
     public static void listar_enemigos() {
         System.out.println("---lista de enemigos---");
         for (int i = 0; i < lista_enemigos.size(); i++) {
